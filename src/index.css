@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 216 20% 91%;
+
+    --card: 217 33% 15%;
+    --card-foreground: 216 20% 91%;
+
+    --popover: 222 47% 7%;
+    --popover-foreground: 216 20% 91%;
+
+    --primary: 187 82% 53%;
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 216 20% 91%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 218 11% 62%;
+
+    --accent: 259 67% 66%;
+    --accent-foreground: 216 20% 91%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 187 82% 53%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 216 20% 91%;
+    --sidebar-primary: 187 82% 53%;
+    --sidebar-primary-foreground: 222 47% 7%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 216 20% 91%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-ring: 187 82% 53%;
+
+    --glow-cyan: 0 0 40px rgba(34, 211, 238, 0.3);
+    --glow-cyan-strong: 0 0 60px rgba(34, 211, 238, 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl;
+  }
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:-translate-y-1;
+  }
+  .glow-button {
+    @apply bg-primary text-primary-foreground font-heading font-semibold px-6 py-3 rounded-xl shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] transition-all duration-300;
+  }
+  .section-heading {
+    @apply font-heading text-3xl md:text-4xl font-bold text-foreground mb-4;
+  }
+  .section-subheading {
+    @apply text-muted-foreground text-lg max-w-2xl mx-auto;
+  }
+
+  .flip-card {
+    perspective: 1200px;
+  }
+  .flip-card-inner {
+    @apply relative h-full w-full transition-transform duration-500;
+    transform-style: preserve-3d;
+  }
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front,
+  .flip-card-back {
+    @apply absolute inset-0;
+    backface-visibility: hidden;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
