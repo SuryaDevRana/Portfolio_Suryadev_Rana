@@ -113,7 +113,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap justify-center gap-4 opacity-0 animate-fade-up" style={{ animationDelay: "1s" }}>
           <a href="#projects" className="glow-button">View Projects</a>
           <a href="#resume" className="border border-border text-foreground font-heading font-semibold px-6 py-3 rounded-xl hover:border-primary/50 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300">
-             Resume
+            Resume
           </a>
           <a href="#contact" className="border border-border text-foreground font-heading font-semibold px-6 py-3 rounded-xl hover:border-primary/50 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300">
             Contact Me
