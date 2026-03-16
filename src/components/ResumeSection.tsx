@@ -14,7 +14,7 @@ const ResumeSection = () => {
           <p className="text-muted-foreground text-lg mb-8">
             Strong foundation in Data Structures & Algorithms with hands-on experience in web development and problem-solving.
           </p>
-          <a href="https://drive.google.com/file/d/1r0-3FcUoVCZCeCCFshkRsDCPRdzoIEsX/view?usp=sharing" className="glow-button inline-flex items-center gap-2">
+          <a href="https://drive.google.com/file/d/1QI6FJ5aX-_ICevyAPvI1L06sVTDa3bk6/view?usp=sharing" className="glow-button inline-flex items-center gap-2">
             <View size={18} /> View Resume
           </a>
         </div>
