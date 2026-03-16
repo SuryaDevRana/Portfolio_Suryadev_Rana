@@ -14,7 +14,7 @@ const projects = [
       "The system allows users to scan QR codes to quickly access, update, and manage inventory records through a centralized dashboard.",
     image: "/tracker.png",
     github: "https://github.com/SuryaDevRana/QR-Code-Based-Inventory-Management-System",
-    live: "#",
+    live: "https://qr-inventory.infinityfreeapp.com/login.php",
     featured: true,
   },
   {
