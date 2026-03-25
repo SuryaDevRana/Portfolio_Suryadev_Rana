@@ -9,10 +9,12 @@ import AchievementsSection from "@/components/AchievementsSection";
 import ResumeSection from "@/components/ResumeSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <ParticlesBackground />
       <Navbar />
       <HeroSection />
       <AboutSection />
