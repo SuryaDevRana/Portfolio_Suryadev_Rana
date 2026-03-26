@@ -1,7 +1,17 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const navItems = ["Home", "About", "Skills", "Projects", "Certification", "Achievements", "Resume", "Contact"];
+const navItems = [
+  "Home",
+  "About",
+  "Skills",
+  "Projects",
+  "Certification",
+  "Achievements",
+  "Resume",
+  "Education",
+  "Contact",
+];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

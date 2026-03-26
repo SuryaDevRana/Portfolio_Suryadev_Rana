@@ -7,6 +7,7 @@ import AwardsSection from "@/components/AwardsSection";
 import CallToActionSection from "@/components/CallToActionSection";
 import AchievementsSection from "@/components/AchievementsSection";
 import ResumeSection from "@/components/ResumeSection";
+import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ParticlesBackground from "@/components/ParticlesBackground";
@@ -24,6 +25,7 @@ const Index = () => {
       <AwardsSection />
       <AchievementsSection />
       <ResumeSection />
+      <EducationSection />
       <ContactSection />
       <Footer />
     </div>
