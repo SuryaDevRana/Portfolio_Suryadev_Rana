@@ -11,6 +11,16 @@ const ParticlesBackground = () => {
 
     let animId: number;
     const particles: { x: number; y: number; vx: number; vy: number; r: number; o: number }[] = [];
+    const mouse = { x: -1000, y: -1000 };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+    const handleMouseLeave = () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    };
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -18,8 +28,10 @@ const ParticlesBackground = () => {
     };
     resize();
     window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
 
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -66,11 +78,49 @@ const ParticlesBackground = () => {
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
 
+        // Mouse interaction
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          const force = (150 - dist) / 150;
+          p.x -= dx * force * 0.02;
+          p.y -= dy * force * 0.02;
+          
+          // Line to mouse
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(34, 211, 238, ${force * 0.15})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(34, 211, 238, ${p.o})`;
         ctx.fill();
       });
+
+      // Constellation connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const p1 = particles[i];
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(34, 211, 238, ${0.1 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
 
       animId = requestAnimationFrame(draw);
     };
@@ -79,6 +129,8 @@ const ParticlesBackground = () => {
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
