@@ -20,7 +20,7 @@ const EducationSection = () => {
       grade: "Percentage: 86%",
     },
     {
-      institution: "Vishudha International",
+      institution: "Vishudha International School",
       degree: "Matriculation",
       location: "Palampur, Himachal Pradesh",
       duration: "Apr' 19 – Mar' 20",
